@@ -20,7 +20,7 @@
 </footer>
 </html>
 </html
-//function.php
+//function.php	
 function awsome_theme_scripts() {
 	wp_enqueue_style('awsome_css',get_template_directory_uri().'/css/style.css',array(), '1.1.0',);
 	wp_enqueue_script('awsomejs', get_template_directory_uri().'/js/awsome.js', array,'1', true);
