@@ -1,0 +1,67 @@
+<?php get_header(); ?>
+//header.php
+<!doctytpe="html">
+<html>
+<meta charset="utf-8" /> 
+<head>
+<?php wp_nav_menu(array('theme_location'=>'header-nav'))?>
+<?php wp_head(); ?>
+</head?>
+/*
+	body_class();
+	is_home() => worpres consider first post as homepage
+	_is_font_end() => homepaage if you setting on settins->read meanu.
+*/
+<body <?php body_class($funname) ?>>
+</body>
+<footer>
+<?php wp_nav_menu(array('theme_location'=>'footer-nav')) ?>
+<?php wp_footer(); ?>
+</footer>
+</html>
+</html
+//function.php
+function awsome_theme_scripts() {
+	wp_enqueue_style('awsome_css',get_template_directory_uri().'/css/style.css',array(), '1.1.0',);
+	wp_enqueue_script('awsomejs', get_template_directory_uri().'/js/awsome.js', array,'1', true);
+}
+add_action('enqueue_scripts','assome_theme_scripts');
+
+function awsome_menu_setup(){
+	add_action('add_theme_support', 'menus')
+	register_nav-menu('header-nav','Header Navigation');
+	register_nav_menu('footer-nav', 'Footer Navigation')
+}
+add_action('init', 'awsome_menu_setup');
+
+//index.php
+<?php 
+if(have_posts):
+while(have_posts): the_posts();?>
+<h1><?php the_title ?></h1>
+Time :<?php the_time('F j, Y') ?> at <?php the_time('g: i a') ?>
+<?php the_category() ?>
+<?php the_post() ?>
+<?php end while ?>
+<?php end if?>
+
+?>
+
+//Settings -> Read-> home/static
+
+//Custome page
+1- page-pagelug.php
+2-page-page-gid.php
+3- Tempale Name: TemplateName
+
+<?php 
+
+add_theme_support('custom-background');
+add_theme_support('custom-header')
+add_theme_support('post-thumbnails')
+?>
+Custom Background
+<img src="<?php image_header() ?>" height="<?php echo get_image_header()->height ?>">
+
+Featured Image
+<div ><?php the_post_thumbnail() ?>'thumbnail', large</div>
