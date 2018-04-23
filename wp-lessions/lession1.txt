@@ -157,3 +157,18 @@ previous_page_link() get prev link
 $currentPage =(get_query_var('paged')?get_query_var('paged'):1)
 $args = array('post_per_page' => 3, 'paged'=>$currentPage);
 query_posts($args)
+
+LESSION 14
+W//Walker Class for slipting codes in function.php
+required get_template_directory('inc/walker.php')
+
+class Walker_Nav_primary extends Walker_Nav_menu
+function strt_lvl (&$output, $depth){}
+function strt_el(){}
+function end_el(){}
+function end_lvl(){}
+
+//Implimention
+wp_nav_menu(arrray('theme_location'=>'primary'
+	'walker' => new Walker_Nav_Primary()
+))
