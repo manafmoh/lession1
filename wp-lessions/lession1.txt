@@ -117,3 +117,43 @@ if($lastBlog->have_posts()):$lastBlog->the_pos()
 wp_rest_postdata();
 
 LESSION 10
+//Category post
+$args_cat => array(
+	'include' => '2,4,6' // category IDS
+)
+$categories = get_categories($args_cat);
+foreach($categories as $category) {
+	$args = array (
+		'type' => 'post',
+		'category_in' => $category->term_id
+	);
+}
+$lastBlog = WP_Query ($args)
+
+LESSION 11
+single.php // same blog loop needed for display content
+the_category( ' ' ) // removing list tags
+the_tags()
+edit_post_link
+
+//Display Commentss
+if(comments_open()) comments_template();
+LESSION 12
+//FORM display
+<?php get_search_form()?> FILE searchform.php
+<?php add_theme_support('html5','search-form')
+dDISPLAY FILE search.php
+get_template_parts('content', 'search') FILE content-search.php
+
+LESSION 13
+//PAGINATION
+Listing
+next_page_link("oldder"); older post link
+previous_page_link("new") get New post link
+Single Page
+next_page_link() get next page link
+previous_page_link() get prev link
+
+$currentPage =(get_query_var('paged')?get_query_var('paged'):1)
+$args = array('post_per_page' => 3, 'paged'=>$currentPage);
+query_posts($args)
