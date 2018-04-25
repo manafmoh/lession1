@@ -243,3 +243,48 @@ $args = array(
 register_post_type('portfolio', $args);
 }
 add_action('init','awsome_custom_post_type')
+
+LESSION 19
+//custom post type 2
+created a post type "portfolio"
+single-portfolio.php
+archive-portfolio.php
+//query_post 
+$args = array('post_type'=>'portfolio')
+
+LESSION 20
+// custom taxonomies
+function awsome_custom_taxonomies(){
+	$labels = array(
+		'name' => 'Types',
+		'singular_name' => 'Type',
+		'search_items' => 'Search Types',
+		'all_items' => 'All Types',
+		'parent_item' => 'Parent Type',
+		'parent_item_colon' > 'Parent Type:',
+		'edit_item'=> 'Edit Type',
+		'update_item' => 'Update Type',
+		'add_new_item' => 'Add New Work Type',
+		'new_item_name' => 'New Type Name',
+		'menu_name' => 'Types'
+);
+
+$args = array (
+	'hierarchical' => true,
+	'labels' => $labels,
+	'show_ui' => true,
+	'show_admin_column' => true,
+	'query_var' => true,
+	'rewrite' => array('slug' => 'type')
+);
+register_taxonomy ('type', array('portfolio', $args));
+}
+
+add_action ('init', 'awesome_custom_taxonomies');
+
+LESSION 20
+Printing Taxonomies Values
+//$term list = wp_get_post_term($post->ID, 'portfolio');
+foreach $term_list as $term
+echo $term->name
+
