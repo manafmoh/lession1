@@ -282,9 +282,16 @@ register_taxonomy ('type', array('portfolio', $args));
 
 add_action ('init', 'awesome_custom_taxonomies');
 
-LESSION 20
+LESSION 21
 Printing Taxonomies Values
 //$term list = wp_get_post_term($post->ID, 'portfolio');
 foreach $term_list as $term
 echo $term->name
+LESSION 22
+get_term_link($term)
+LESSION 23
+/Bootstrap
+the_title(sprint(‘<h1 class=“entry-title”><a href=“%S”>’,esc_url(get_permalink())),’</a></h1>’);
+//LIVE SESSION
 
+LESSION 24
